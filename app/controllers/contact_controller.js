@@ -15,7 +15,7 @@ action('send_mail', function() {
     if (body.text) {
         var mailOptions = {
             from: "oNary site",
-            to: "cepera.voron@gmail.com",
+            to: "my.mail@gmail.com",
             subject: "Message ✔",
             html: "<p>" + body.text + "</p>"
         };

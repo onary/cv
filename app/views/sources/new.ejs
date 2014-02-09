@@ -1,0 +1,50 @@
+<ul class="breadcrumb">
+    <li><a ui-sref="index">Home</a> <span class="divider">/</span></li>
+    <li><a ui-sref="admin.index">Admin</a> <span class="divider">/</span></li>
+    <li><a ui-sref="admin.sources">Sources</a><span class="divider">/</span></li>
+    <li class="active">New source</li>
+</ul>
+
+<div class="page-header">
+    <h1>New source</h1>
+</div>
+
+<div ng-show="err" class="alert alert-error">{{ err }}</div>
+<div ng-show="success" class="alert alert-success">Source saved</div>
+<form name="createForm" ng-submit="create()" novalidate role="form" id="create-example-form" class="form-horizontal ng-pristine ng-valid">
+    <fieldset>
+        <legend>New</legend>
+        <div class="control-group">
+            <label for="" class="col-sm-5 control-label">Name</label>
+            <div class="col-sm-7 controls">
+                <input class="form-control" name="name" type="text" value="" placeholder="Name" ng-model="item.name">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="" class="col-sm-5 control-label">Description</label>
+            <div class="col-sm-7 controls">
+                <input class="form-control" name="description" type="text" value="" placeholder="Description" ng-model="item.description">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="" class="col-sm-5 control-label">Code</label>
+            <div class="col-sm-7 controls">
+                <textarea cols="400" id="id_code" rows="10" class="form-control" name="code" type="text" value="" placeholder="Code" ng-model="item.code"></textarea>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="" class="col-sm-5 control-label">Example</label>
+            <div class="col-sm-7 controls">
+                <input class="form-control" name="example_id" type="text" value="" placeholder="Example" ng-model="item.example_id">
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary" ng-disabled="!createForm.$valid">
+                <i class="icon-ok icon-white"></i> Create source</button>
+        </div>
+    </fieldset>
+</form>

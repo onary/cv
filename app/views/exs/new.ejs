@@ -1,0 +1,39 @@
+<ul class="breadcrumb">
+    <li><a ui-sref="index">Home</a> <span class="divider">/</span></li>
+    <li><a ui-sref="admin.index">Admin</a> <span class="divider">/</span></li>
+    <li><a ui-sref="admin.examples">Examples</a><span class="divider">/</span></li>
+    <li class="active">New example</li>
+</ul>
+
+<div class="page-header">
+    <h1>New example</h1>
+</div>
+
+<div ng-show="err" class="alert alert-error">{{ err }}</div>
+<div ng-show="success" class="alert alert-success">Example saved</div>
+<form name="createForm" ng-submit="create()" novalidate role="form" id="create-example-form" class="form-horizontal ng-pristine ng-valid">
+    <fieldset>
+        <legend>New</legend>
+        <div class="control-group">
+            <label for="" class="col-sm-5 control-label">Name</label>
+            <div class="col-sm-7 controls">
+                <input class="form-control" name="name" type="text" value="" placeholder="Name" ng-model="item.name">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="" class="col-sm-5 control-label">Description</label>
+            <div class="col-sm-7 controls">
+                <textarea cols="400" id="id_code" rows="10" class="form-control"
+                          name="description" type="text" value=""
+                          placeholder="Description" ng-model="item.description">
+                </textarea>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary" ng-disabled="!createForm.$valid">
+                <i class="icon-ok icon-white"></i> Create example</button>
+        </div>
+    </fieldset>
+</form>

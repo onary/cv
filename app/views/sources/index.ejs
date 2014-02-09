@@ -1,0 +1,44 @@
+<ul class="breadcrumb">
+    <li><a ui-sref="index">Home</a> <span class="divider">/</span></li>
+    <li><a ui-sref="admin.index">Admin</a> <span class="divider">/</span></li>
+    <li class="active">Sources</li>
+</ul>
+
+<div class="page-header">
+    <h1>Index of source</h1>
+</div>
+
+<div class="row">
+    <div class="span12">
+        <p><a ui-sref="admin.sourcesNew" class="btn btn-primary"><i class="icon-plus icon-white"></i> New source</a></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="span12">
+
+        <table class="table table-striped" ng-show="availability">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="source in items track by $index">
+                <td><strong><a ui-sref="admin.sourcesShow({id: source.id})">example {{ source.id }}</a></strong></td>
+                <td>
+                    <a ui-sref="admin.sourcesEdit({id: source.id})" class="btn btn-mini"><i class="icon-edit"></i> Edit</a>
+                    <a href="" class="btn btn-mini btn-danger" ng-click="delete(source.id, 'sources')">
+                        <i class="icon-remove icon-white"></i> Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p ng-hide="availability" class="alert alert-block alert-info">
+            <strong>No sources were found.</strong>
+        </p>
+
+    </div>
+</div>

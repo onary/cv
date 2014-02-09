@@ -1,0 +1,29 @@
+<ul class="breadcrumb">
+    <li><a ui-sref="index">Home</a> <span class="divider">/</span></li>
+    <li><a ui-sref="admin.index">Admin</a> <span class="divider">/</span></li>
+    <li><a ui-sref="admin.comments">Comments</a><span class="divider">/</span></li>
+    <li class="active">Details of comment</li>
+</ul>
+
+<div class="page-header">
+    <h1>Details of comment</h1>
+</div>
+
+<table class="table table-bordered">
+    <tbody>
+        <tr><th>Message</th><td>{{ item.message }}</td></tr>
+
+        <tr><th>Post</th><td>{{ item.post_id }}</td></tr>
+
+        <tr><th>User</th><td>{{ item.user_id }}</td></tr>
+
+    </tbody>
+</table>
+
+<div class="well">
+    <a ui-sref="admin.commentsEdit({id: item.id})" class="btn btn-mini"><i class="icon-edit"></i> Edit</a>
+    <a href="" class="btn btn-mini btn-danger" ng-click="delete(item.id, 'comments')">
+        <i class="icon-remove icon-white"></i> Delete</a>
+    or
+    <a ui-sref="admin.comments">Back to index</a>
+</div>

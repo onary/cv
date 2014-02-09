@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="oNary" id="ng-app">
+    <head>
+        <title><%= title %></title>
+        <%- stylesheetLinkTag(
+                'bootstrap',
+                'bootstrap-responsive',
+                'application',
+                'highlight/monokai_sublime',
+                'app') %>
+        <%- javascriptIncludeTag(
+                'jquery-min',
+                'vendor/angular',
+                'vendor/angular-cookies',
+                'vendor/angular-resource',
+                'vendor/angular-ui-router',
+                'vendor/highlight',
+                'vendor/angular-highlightjs.min',
+                'bootstrap',
+                'utils',
+                'rails',
+                'application',
+                'app',
+                'services',
+                'filters',
+                'controllers') %>
+        <meta charset="utf8">
+        <meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    </head>
+    <body ui-view="content">
+    </body>
+</html>

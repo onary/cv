@@ -1,0 +1,47 @@
+<ul class="breadcrumb">
+    <li><a ui-sref="index">Home</a> <span class="divider">/</span></li>
+    <li><a ui-sref="admin.index">Admin</a> <span class="divider">/</span></li>
+    <li><a ui-sref="admin.posts">Posts</a><span class="divider">/</span></li>
+    <li class="active">Edit post</li>
+</ul>
+
+<div class="page-header">
+    <h1>Post example</h1>
+</div>
+
+<div ng-show="err" class="alert alert-error">{{ err }}</div>
+<div ng-show="success" class="alert alert-success">post saved</div>
+<form name="editForm" ng-submit="edit()" novalidate role="form" id="post-form" class="form-horizontal ng-pristine ng-valid">
+    <fieldset>
+        <legend>Edit</legend>
+        <div class="control-group">
+            <label for="" class="col-sm-5 control-label">Title</label>
+            <div class="col-sm-7 controls">
+                <input class="form-control" name="title" type="text" value="" placeholder="Title" ng-model="item.title">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="" class="col-sm-5 control-label">Post</label>
+            <div class="col-sm-7 controls">
+                <textarea cols="400" id="id_code" rows="10" class="form-control"
+                          name="post" type="text" value=""
+                          placeholder="Post" ng-model="item.post">
+                </textarea>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="" class="col-sm-5 control-label">User</label>
+            <div class="col-sm-7 controls">
+                <input class="form-control" name="user_id" type="text" value="" placeholder="User" ng-model="item.user_id">
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary" ng-disabled="!editForm.$valid">
+                <i class="icon-ok icon-white"></i> Update post</button> or
+            <a ui-sref="admin.postsShow({id: item.id})" class="btn">Cancel</a>
+        </div>
+    </fieldset>
+</form>

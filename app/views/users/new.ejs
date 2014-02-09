@@ -1,0 +1,76 @@
+<ul class="breadcrumb">
+    <li><a ui-sref="index">Home</a> <span class="divider">/</span></li>
+    <li><a ui-sref="admin.index">Admin</a> <span class="divider">/</span></li>
+    <li><a ui-sref="admin.users">Users</a><span class="divider">/</span></li>
+    <li class="active">New user</li>
+</ul>
+
+<div class="page-header">
+    <h1>New user</h1>
+</div>
+{{ item }}
+<div ng-show="err" class="alert alert-error">{{ err }}</div>
+<div ng-show="success" class="alert alert-success">User saved</div>
+<form name="createForm" ng-submit="create()" novalidate role="form" id="create-user-form" class="form-horizontal ng-pristine ng-valid">
+    <fieldset>
+        <legend>New</legend>
+        <div class="control-group">
+            <label for="" class="col-sm-5 control-label">Name</label>
+            <div class="col-sm-7 controls">
+                <input class="form-control" name="name" type="text" value="" placeholder="Name" ng-model="item.name">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="" class="col-sm-5 control-label">Provider</label>
+            <div class="col-sm-7 controls">
+                <input class="form-control" name="provider" type="text" value="" placeholder="Provider" ng-model="item.provider">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="" class="col-sm-5 control-label">Provider ID</label>
+            <div class="col-sm-7 controls">
+                <input class="form-control" name="providerID" type="text" value="" placeholder="ProviderID" ng-model="item.providerID">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="" class="col-sm-5 control-label">Email</label>
+            <div class="col-sm-7 controls">
+                <input class="form-control" type="email" name="email" value="" placeholder="Email" ng-model="item.email" required>
+                <div class="error" ng-show="createForm.email.$dirty && createForm.email.$error.required">email is required</div>
+                <div class="error" ng-show="createForm.email.$dirty && createForm.email.$error.email">email has wrong format</div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="" class="col-sm-5 control-label">Password</label>
+            <div class="col-sm-7 controls">
+                <input class="form-control" name="password" type="password" value="" placeholder="Password" ng-model="item.password">
+                <div class="error" ng-show="createForm.password.$error.xhr">{{ createForm.password.$error.xhr }}</div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="confirm-password" class="col-sm-5 control-label">Confirm password</label>
+            <div class="col-sm-7 controls">
+                <input id="confirm-password" name="password_confirmation" type="password"
+                       ng-model="item.password_confirmation" match="item.password" class="form-control" placeholder="Confirm new password" />
+                <div class="error" ng-show="createForm.password_confirmation.$error.mismatch">passwords aren't equal</div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="User_isadmin" class="control-label">Is admin</label>
+            <div class="controls">
+                <input name="isadmin" type="checkbox" value="1" ng-model="item.isadmin">
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary" ng-disabled="!createForm.$valid">
+                <i class="icon-ok icon-white"></i> Create user</button>
+        </div>
+    </fieldset>
+</form>

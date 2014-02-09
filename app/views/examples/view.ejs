@@ -1,0 +1,17 @@
+<header class="cv"></header>
+
+<div id="splash" class="examples">
+    <h1>code examples</h1>
+    <div class="description-wrapper">
+        <p>Name: {{ example.name }}</p>
+        <p>Description: <span ng-bind-html-unsafe="example.description"></span></p>
+    </div>
+    <ul class="tab-container">
+        <li ng-repeat="s in sources">
+            <h2><a ng-click="show_source(s.id)">{{ s.name }}</a></h2>
+            <div hljs source="s.code"></div>
+        </li>
+    </ul>
+</div>
+
+<footer></footer>

@@ -1,0 +1,81 @@
+<header class="cv"></header>
+
+<div id="splash" class="cv">
+    <h1>Curriculum Vitae</h1> <a class="pdf" href="/cv/pdf">Download PDF</a>
+    <table class="cv" cellpadding="5">
+        <tr>
+            <td valign="top">
+                General
+            </td>
+            <td>
+                <table cellspacing="2">
+                    <tr ng-repeat="(k, v) in cv.general">
+                        <td ng-repeat="(key, val) in v">
+                            <div class="h-block">{{ key }}:</div>{{ val }}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                Experience
+            </td>
+            <td>
+                <table>
+                    <tr ng-repeat="(k, v) in cv.experience">
+                        <td>
+                            <div ng-repeat="(key, val) in v">
+                                {{ key }}<br /> {{ val }}
+                            </div>
+                            <br />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                Skills
+            </td>
+            <td>
+                <table cellpadding="4" class="skills">
+                    <tr ng-repeat="(k, v) in cv.skills">
+                        <td ng-repeat="(key, val) in v">
+                            <div class="h-block">{{ key }}:</div>
+                            <table class="table-skill">
+                                <tr ng-repeat="skill in val">
+                                    <td class="td-first">
+                                        {{ skill }}
+                                    </td>
+                                    <td >
+                                        <img src="./images/skills/{{skill}}.png" alt="" class="skills-img">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                Education
+            </td>
+            <td>
+                {{ cv.education }}
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                Summary
+            </td>
+            <td>
+                {{ cv.summary }}
+            </td>
+        </tr>
+    </table>
+</div>
+
+<footer></footer>

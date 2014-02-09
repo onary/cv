@@ -1,0 +1,48 @@
+<ul class="breadcrumb">
+    <li><a ui-sref="index">Home</a> <span class="divider">/</span></li>
+    <li><a ui-sref="admin.index">Admin</a> <span class="divider">/</span></li>
+    <li><a ui-sref="admin.comments">Comments</a><span class="divider">/</span></li>
+    <li class="active">Edit comment</li>
+</ul>
+
+<div class="page-header">
+    <h1>Edit comment</h1>
+</div>
+
+<div ng-show="err" class="alert alert-error">{{ err }}</div>
+<div ng-show="success" class="alert alert-success">comment saved</div>
+<form name="editForm" ng-submit="edit()" novalidate role="form" id="comment-form" class="form-horizontal ng-pristine ng-valid">
+    <fieldset>
+        <legend>Edit</legend>
+
+        <div class="control-group">
+            <label for="" class="col-sm-5 control-label">Message</label>
+            <div class="col-sm-7 controls">
+                <textarea cols="400" id="id_code" rows="10" class="form-control"
+                          name="message" type="text" value=""
+                          placeholder="Message" ng-model="item.message">
+                </textarea>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="" class="col-sm-5 control-label">User</label>
+            <div class="col-sm-7 controls">
+                <input class="form-control" name="user_id" type="text" value="" placeholder="User" ng-model="item.user_id">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="" class="col-sm-5 control-label">Post</label>
+            <div class="col-sm-7 controls">
+                <input class="form-control" name="post_id" type="text" value="" placeholder="Post" ng-model="item.post_id">
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary" ng-disabled="!editForm.$valid">
+                <i class="icon-ok icon-white"></i> Update comment</button> or
+            <a ui-sref="admin.commentsShow({id: item.id})" class="btn">Cancel</a>
+        </div>
+    </fieldset>
+</form>

@@ -1,0 +1,13 @@
+<header class="cv"></header>
+
+<div id="splash" class="examples">
+    <h1>code examples</h1>
+    <ol class="examples-list">
+        <li ng-repeat="e in examples">
+            <a ui-sref="index.examplesView({id: e.id})"> {{ e.name }}</a>
+            <p ng-bind-html-unsafe="e.description"></p>
+        </li>
+    </ol>
+</div>
+
+<footer></footer>

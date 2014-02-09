@@ -1,0 +1,44 @@
+<header class="cv"></header>
+
+<div id="splash">
+    <div class="blog">
+        <h1>{{ post.title }}</h1> {{ post.created_at|datetime }}
+        <div class="post-wrapper" ng-bind-html-unsafe="post.post"></div>
+        <div class="comms-header"><h2>Comments:</h2></div>
+        <ul class="tab-container">
+            <li ng-repeat="c in comments">
+                <span class="username">{{ c.user }}</span>
+                <span class="date">{{ c.created_at|datetime }}</span>
+                <p>{{ c.message }}</p>
+            </li>
+        </ul>
+        <div class="message-wrapper">
+            <div ng-hide="allow_send_comments"><h3>Only registered users can leave comment</h3></div>
+
+            <h4 ng-show="allow_send_comments">Write a comment</h4>
+            <form name="MessageForm" ng-submit="send_comment()"
+                  novalidate role="form" id="send-form"
+                  class="form-horizontal ng-pristine ng-valid"
+                  ng-show="allow_send_comments">
+                <fieldset>
+                    <div class="control-group">
+                        <div class="col-sm-7 controls">
+                            <textarea cols="300" id="id_code" rows="5" class="form-control"
+                                      name="text" type="text" value=""
+                                      placeholder="Comment" ng-model="message" required>
+                            </textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-warning" ng-disabled="!MessageForm.$valid">
+                            <i class="icon-ok icon-white"></i> Submit comment</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div ng-show="err" class="alert alert-error">{{ err }}</div>
+    </div>
+</div>
+
+<footer></footer>

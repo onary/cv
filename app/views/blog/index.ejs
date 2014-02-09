@@ -1,0 +1,13 @@
+<header class="cv"></header>
+
+<div id="splash" class="examples">
+    <h1>Recent posts</h1>
+    <ol class="examples-list">
+        <li ng-repeat="p in posts">
+            <a ui-sref="index.blogView({id: p.id})"> {{ p.title }}</a><br />
+            {{ p.created_at|datetime }}
+        </li>
+    </ol>
+</div>
+
+<footer></footer>

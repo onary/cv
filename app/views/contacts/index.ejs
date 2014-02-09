@@ -1,0 +1,48 @@
+<header class="cv"></header>
+
+<div id="splash" class="cv contacts">
+    <form name="MessageForm" ng-submit="send()" novalidate role="form" id="send-form" class="form-horizontal ng-pristine ng-valid">
+        <fieldset>
+
+            <div class="control-group">
+                <label for="" class="col-sm-5 control-label">Phone:</label>
+                <div class="col-sm-7 controls">
+                    <p>+380958710067</p>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="" class="col-sm-5 control-label">Email:</label>
+                <div class="col-sm-7 controls">
+                    <p>cepera.voron@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="" class="col-sm-5 control-label">Skype:</label>
+                <div class="col-sm-7 controls">
+                    <p>wesper_sb</p>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="" class="col-sm-5 control-label">Message:</label>
+                <div class="col-sm-7 controls">
+                    <textarea cols="300" id="id_code" rows="7" class="form-control"
+                              name="text" type="text" value=""
+                              placeholder="Don't hesitate to write me..." ng-model="message.text" required>
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary" ng-disabled="!MessageForm.$valid || !active">
+                    <i class="icon-ok icon-white"></i> Send message</button>
+            </div>
+        </fieldset>
+    </form>
+    <div ng-show="err" class="alert alert-error">{{ err }}</div>
+    <div ng-show="success" class="alert alert-success">The message was successfully sent!</div>
+</div>
+
+<footer></footer>

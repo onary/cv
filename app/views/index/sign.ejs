@@ -1,0 +1,67 @@
+<nav ng-controller="HeaderCtrl" class="navbar navbar-default" role="navigation">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" ui-sref="index">oNary site</a>
+            <ul class="nav navbar-nav">
+                <li><a ui-sref="admin.index">Admin Homepage</a></li>
+                <li ng-hide="user.is_authorized"><a class="fb-sign" href="/auth/facebook"></a></li>
+                <li ng-hide="user.is_authorized"><a class="google-sign" href="/auth/google"></a></li>
+                <li ng-hide="user.is_authorized"><a class="tw-sign" href="/auth/twitter"></a></li>
+                <li ng-show="user.is_authorized" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Account ({{ user.name }}) <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li ng-controller="UsersCtrl"><a ng-click="signout()" href="">Sign out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="col-sm-12 content clearfix" ui-view="admContent" >
+
+        <h2 class="early">Admin page</h2>
+
+        <div ng-controller="UsersCtrl">
+
+            <div class="sign-forms">
+                <div ng-hide="user.is_authorized">
+                    <form name="signinForm" ng-submit="create()" novalidate role="form" class="form-horizontal ng-pristine ng-valid">
+                        <fieldset>
+                            <legend>Sign in</legend>
+                            <div class="control-group">
+                                <label for="" class="col-sm-5 control-label">Email</label>
+                                <div class="col-sm-7 controls">
+                                    <input class="form-control" type="email" name="email" value="" placeholder="Email" ng-model="signin.email" required>
+                                    <div class="error" ng-show="signinForm.email.$dirty && signinForm.email.$error.required">email is required</div>
+                                    <div class="error" ng-show="signinForm.email.$dirty && signinForm.email.$error.email">email has wrong format</div>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label for="" class="col-sm-5 control-label">Password</label>
+                                <div class="col-sm-7 controls">
+                                    <input class="form-control" name="password" type="password" value="" placeholder="Password" ng-model="signin.password" required>
+                                    <div class="error" ng-show="signinForm.password.$dirty && signinForm.password.$error.required">password is required</div>
+                                    <div class="error" ng-show="signinForm.password.$dirty && signinForm.password.$error.xhr">{{ signinForm.password.$error.xhr }}</div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-actions">
+                                <button ng-disabled="!signinForm.$valid" class="btn btn-primary"><i class="icon-ok icon-white"></i> Sign in</button>
+                            </div>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <hr />
+    <footer>
+        <p>&copy; oNary 2014</p>
+    </footer>
+</div>

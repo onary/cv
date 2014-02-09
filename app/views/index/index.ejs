@@ -1,0 +1,49 @@
+<div class="social" ng-controller="HeaderCtrl">
+    <div ng-hide="user.is_authorized">
+        <p>login via</p>
+        <a href="/auth/twitter" class="tw"><img src="./images/twitter2.png" alt=""></a>
+        <a href="/auth/facebook" class="fb"><img src="./images/facebook2.png" alt=""></a>
+        <a href="/auth/google" class="gp"><img src="./images/gplus.png" alt=""></a>
+    </div>
+    <div ng-show="user.is_authorized">
+        <a class="dropdown-toggle" data-toggle="dropdown">Account ({{ user.name }}) <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li ng-controller="UsersCtrl"><a ng-click="signout()" href="">Sign out</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="main" ui-view="index">
+    <header></header>
+
+    <div id="splash">
+        <div class="container txt_cntr" id="splash_dissapp">
+            <h1>web developer</h1>
+            <h5>Vorontsov Sergey</h5>
+            <div class="splash_section">
+                <div class="splash_col1">
+                    <a ui-sref="index.cv">
+                        <img src="./images/splash_icon1.png" alt="" class="splash_img img-rounded">
+                        cv</a>
+                </div>
+                <div class="splash_col1">
+                    <a ui-sref="index.contacts">
+                        <img src="./images/splash_icon2.png" alt="" class="splash_img img-rounded">
+                        contacts</a>
+                </div>
+                <div class="splash_col1">
+                    <a ui-sref="index.examples">
+                        <img src="./images/splash_icon3.png" alt="" class="splash_img img-rounded">
+                        examples</a>
+                </div>
+                <div class="splash_col1">
+                    <a ui-sref="index.blog">
+                        <img src="./images/splash_icon4.png" alt="" class="splash_img img-rounded">
+                        blog</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer></footer>
+</div>

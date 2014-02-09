@@ -48,10 +48,6 @@ MyAPI.factory('User', function($resource) {
     return resource;
 });
 
-/**
- * Servers REST model
- * @param  {ngResource} $resource
- */
 MyAPI.factory('Users', function($resource) {
     return $resource('/admin/users/:id', {}, {
         query: {

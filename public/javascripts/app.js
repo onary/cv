@@ -235,7 +235,7 @@ MyApp.config(['$stateProvider', '$urlRouterProvider',
                 views: {
                     admContent: {
                         templateUrl: "/templates/sources/new",
-                        controller: "AdminPostsCtrl"
+                        controller: "AdminSourcesCtrl"
                     }
                 }
             })
